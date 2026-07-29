@@ -1,33 +1,35 @@
-import { useState } from 'react';
-import { services } from '../../data';
+import { useState } from "react";
+import { services } from "../../data";
 
 const TABS = [
-  { key: 'men',       label: "Men's",    emoji: '👔' },
-  { key: 'women',     label: "Women's",  emoji: '👗' },
-  { key: 'household', label: 'Household', emoji: '🏠' },
+  { key: "men", label: "Men's", emoji: "👔" },
+  { key: "women", label: "Women's", emoji: "👗" },
+  { key: "household", label: "Household", emoji: "🏠" },
 ];
 
 export default function ServicesSection() {
-  const [activeTab, setActiveTab] = useState('men');
+  const [activeTab, setActiveTab] = useState("men");
 
   return (
     <section id="services" className="section services-section">
       <div className="container">
         <div className="text-center">
           <span className="section-label">What We Clean</span>
-          <h2 className="section-title">Our <span>Services</span></h2>
-          <p className="section-desc" style={{ margin: '0 auto 40px' }}>
-            Professional cleaning for every garment type, handled with precision and care.
+          <h2 className="section-title">
+            Our <span>Services</span>
+          </h2>
+          <p className="section-desc" style={{ margin: "0 auto 40px" }}>
+            Professional cleaning for every garment type, handled with precision
+            and care.
           </p>
         </div>
 
-        {/* Tabs */}
         <div className="services-tabs">
           <div className="services-tab-bar">
-            {TABS.map(tab => (
+            {TABS.map((tab) => (
               <button
                 key={tab.key}
-                className={`tab-btn ${activeTab === tab.key ? 'active' : ''}`}
+                className={`tab-btn ${activeTab === tab.key ? "active" : ""}`}
                 onClick={() => setActiveTab(tab.key)}
               >
                 <span>{tab.emoji}</span>
@@ -37,9 +39,8 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        {/* Cards */}
         <div className="services-grid">
-          {services[activeTab].map(service => (
+          {services[activeTab].map((service) => (
             <div key={service.id} className="service-card">
               <div className="service-card-emoji">{service.icon}</div>
               <div className="service-card-name">{service.name}</div>
@@ -49,7 +50,15 @@ export default function ServicesSection() {
                   <span className="service-card-price-unit">/ piece</span>
                 </div>
                 <div className="service-card-time">
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginBottom: 2 }}>Ready in</div>
+                  <div
+                    style={{
+                      fontSize: "0.72rem",
+                      color: "var(--text-muted)",
+                      marginBottom: 2,
+                    }}
+                  >
+                    Ready in
+                  </div>
                   {service.time}
                 </div>
               </div>

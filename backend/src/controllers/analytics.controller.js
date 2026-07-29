@@ -54,7 +54,6 @@ export const getDashboardStats = async (req, res) => {
       .filter((o) => o.paymentStatus === "paid")
       .reduce((s, o) => s + o.totalAmount, 0);
 
-    // Revenue over last 7 days
     const last7Days = [];
 
     for (let i = 6; i >= 0; i--) {
@@ -79,7 +78,6 @@ export const getDashboardStats = async (req, res) => {
       });
     }
 
-    // Top garment types
     const garmentStats = await Order.aggregate([
       { $unwind: "$garments" },
       {

@@ -6,21 +6,21 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('sparkle_user')); } catch { return null; }
+    try { return JSON.parse(localStorage.getItem('kritika_user')); } catch { return null; }
   });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('sparkle_token');
+    const token = localStorage.getItem('kritika_token');
     if (token) {
       authAPI.getMe()
         .then(({ data }) => {
           setUser(data.user);
-          localStorage.setItem('sparkle_user', JSON.stringify(data.user));
+          localStorage.setItem('kritika_user', JSON.stringify(data.user));
         })
         .catch(() => {
-          localStorage.removeItem('sparkle_token');
-          localStorage.removeItem('sparkle_user');
+          localStorage.removeItem('kritika_token');
+          localStorage.removeItem('kritika_user');
           setUser(null);
         })
         .finally(() => setLoading(false));
@@ -31,30 +31,30 @@ export const AuthProvider = ({ children }) => {
 
   const login = useCallback(async (email, password) => {
     const { data } = await authAPI.login({ email, password });
-    localStorage.setItem('sparkle_token', data.token);
-    localStorage.setItem('sparkle_user', JSON.stringify(data.user));
+    localStorage.setItem('kritika_token', data.token);
+    localStorage.setItem('kritika_user', JSON.stringify(data.user));
     setUser(data.user);
     return data.user;
   }, []);
 
   const register = useCallback(async (formData) => {
     const { data } = await authAPI.register(formData);
-    localStorage.setItem('sparkle_token', data.token);
-    localStorage.setItem('sparkle_user', JSON.stringify(data.user));
+    localStorage.setItem('kritika_token', data.token);
+    localStorage.setItem('kritika_user', JSON.stringify(data.user));
     setUser(data.user);
     return data.user;
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem('sparkle_token');
-    localStorage.removeItem('sparkle_user');
+    localStorage.removeItem('kritika_token');
+    localStorage.removeItem('kritika_user');
     setUser(null);
     toast.success('Logged out successfully');
   }, []);
 
   const updateUser = useCallback((updatedUser) => {
     setUser(updatedUser);
-    localStorage.setItem('sparkle_user', JSON.stringify(updatedUser));
+    localStorage.setItem('kritika_user', JSON.stringify(updatedUser));
   }, []);
 
   return (

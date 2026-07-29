@@ -45,14 +45,14 @@ const paymentStorage = new CloudinaryStorage({
 const uploadGarment = multer({
   storage: garmentStorage,
   limits: {
-    fileSize: 10 * 1024 * 1024, // 10 MB
+    fileSize: 10 * 1024 * 1024,
   },
 });
 
 const uploadPayment = multer({
   storage: paymentStorage,
   limits: {
-    fileSize: 5 * 1024 * 1024, // 5 MB
+    fileSize: 5 * 1024 * 1024,
   },
 });
 

@@ -362,7 +362,6 @@
 .stat-card-change.up   { background-color: #e8f5e9; color: #2e7d32; }
 .stat-card-change.down { background-color: #fdecea; color: #c62828; }
 
-/* ----------- Data Table ----------- */
 .data-table-wrap {
   background-color: var(--surface);
   border: 1px solid var(--border);
@@ -510,7 +509,6 @@
   font-size: 0.88rem;
 }
 
-/* ----------- Status Filter pills ----------- */
 .filter-pills {
   display: flex;
   gap: 8px;
@@ -543,7 +541,6 @@
   color: var(--text);
 }
 
-/* ----------- Chart Wrapper ----------- */
 .chart-card {
   background-color: var(--surface);
   border: 1px solid var(--border);
@@ -559,7 +556,6 @@
   margin-bottom: 18px;
 }
 
-/* ----------- Notification item ----------- */
 .notif-item {
   display: flex;
   gap: 12px;
@@ -612,7 +608,6 @@
   flex-shrink: 0;
 }
 
-/* ----------- Profile form ----------- */
 .profile-card {
   background-color: var(--surface);
   border: 1px solid var(--border);
@@ -669,7 +664,6 @@
   text-transform: capitalize;
 }
 
-/* ----------- Invoice row ----------- */
 .invoice-row {
   display: flex;
   align-items: center;

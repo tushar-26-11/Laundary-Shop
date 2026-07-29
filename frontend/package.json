@@ -1,7 +1,7 @@
 {
-  "name": "sparkle-dry-cleaners",
-  "version": "1.0.0",
+  "name": "kritika-drycleaners",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,18 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.7.2",
-    "lucide-react": "^0.383.0",
+    "axios": "^1.7.9",
+    "lucide-react": "^0.469.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.4.1",
-    "react-router-dom": "^6.24.0",
-    "recharts": "^2.12.7"
+    "react-router-dom": "^6.28.1",
+    "recharts": "^2.13.3"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.3.1"
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
   }
 }

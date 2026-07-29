@@ -1,503 +1,268 @@
-/* =============================================
-   AUTH PAGES — Login, Register
-   ============================================= */
+/* ===============================
+   AUTH PAGE
+================================== */
 
 .auth-page {
   min-height: 100vh;
-  background-color: var(--bg);
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 40px 16px;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  background:
+      radial-gradient(circle at top left,
+      rgba(232,67,123,.08),
+      transparent 35%),
+      radial-gradient(circle at bottom right,
+      rgba(142,63,160,.12),
+      transparent 35%),
+      var(--bg);
 }
 
 .auth-box {
-  background-color: var(--surface);
+  width: 100%;
+  max-width: 430px;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 40px 36px;
-  width: 100%;
-  max-width: 440px;
-  box-shadow: var(--shadow-md);
+  padding: 42px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
 }
 
+/* Tag Hole */
+
+.auth-box::before {
+  content: "";
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--border);
+}
+
+/* String */
+
+.auth-box::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: 35px;
+  width: 2px;
+  height: 42px;
+  background: repeating-linear-gradient(
+      to bottom,
+      var(--primary),
+      var(--primary) 4px,
+      transparent 4px,
+      transparent 8px
+  );
+}
+
+/* ===============================
+   Logo
+================================== */
+
 .auth-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 28px;
+  text-align: center;
+  margin-bottom: 34px;
 }
 
 .auth-logo-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  margin-bottom: 18px;
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
 .auth-logo-icon {
-  width: 40px;
-  height: 40px;
-  background-color: var(--primary);
-  border-radius: var(--radius-md);
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 1.2rem;
+  background: var(--grad-brand);
+  color: white;
+  font-size: 28px;
+  box-shadow: var(--shadow-tag);
 }
 
 .auth-logo-text {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--ink-deep);
 }
 
 .auth-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--text);
-  text-align: center;
-  margin-bottom: 4px;
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
 .auth-subtitle {
-  font-size: 0.9rem;
   color: var(--text-muted);
-  text-align: center;
 }
 
-/* Form fields inside auth */
+/* ===============================
+   Form
+================================== */
+
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 22px;
 }
 
 .auth-form-label {
   display: block;
-  font-size: 0.86rem;
+  margin-bottom: 8px;
+  color: var(--ink-deep);
   font-weight: 600;
-  color: var(--text);
-  margin-bottom: 6px;
 }
+
+/* ===============================
+   Input
+================================== */
+
+.field-icon-wrap {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+}
+
+.icon-right {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  transition: .25s;
+}
+
+.icon-right:hover {
+  color: var(--secondary);
+}
+
+.input-field {
+  width: 100%;
+  height: 54px;
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--text);
+  font-size: .95rem;
+  transition: .25s;
+}
+
+.pl-11 {
+  padding-left: 46px;
+}
+
+.pr-11 {
+  padding-right: 46px;
+}
+
+.input-field:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(142,63,160,.10);
+}
+
+.input-field::placeholder {
+  color: #9c8cab;
+}
+
+/* ===============================
+   Button
+================================== */
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--grad-brand);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   Divider
+================================== */
 
 .auth-divider {
+  margin: 28px 0 18px;
   height: 1px;
-  background-color: var(--border);
-  margin: 20px 0;
+  background: var(--border);
 }
 
-.auth-demo-box {
-  background-color: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  margin-bottom: 16px;
-}
-
-.auth-demo-box-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-.auth-demo-row {
-  display: flex;
-  gap: 8px;
-  align-items: baseline;
-  font-size: 0.8rem;
-  margin-bottom: 4px;
-}
-
-.auth-demo-row:last-child {
-  margin-bottom: 0;
-}
-
-.auth-demo-role {
-  color: var(--text-muted);
-  width: 70px;
-  flex-shrink: 0;
-}
-
-.auth-demo-creds {
-  font-family: 'Courier New', monospace;
-  font-size: 0.78rem;
-  color: var(--primary);
-  font-weight: 600;
-}
+/* ===============================
+   Footer
+================================== */
 
 .auth-switch {
   text-align: center;
-  font-size: 0.88rem;
   color: var(--text-muted);
 }
 
 .auth-switch a {
   color: var(--primary);
-  font-weight: 600;
-  text-decoration: none;
+  font-weight: 700;
 }
 
 .auth-switch a:hover {
-  text-decoration: underline;
+  color: var(--secondary);
 }
 
+/* ===============================
+   Back Link
+================================== */
+
 .auth-back-link {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
-  font-size: 0.85rem;
+  position: absolute;
+  top: 30px;
+  left: 30px;
   color: var(--text-muted);
-  text-decoration: none;
+  transition: .25s;
 }
 
 .auth-back-link:hover {
-  color: var(--text);
-}
-
-/* ----------- TRACK PAGE ----------- */
-.track-page {
-  min-height: 100vh;
-  background-color: var(--bg);
-}
-
-.track-page-topbar {
-  background-color: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 0 24px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.track-page-topbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-
-.track-page-topbar-logo-icon {
-  width: 30px;
-  height: 30px;
-  background-color: var(--primary);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 0.9rem;
-}
-
-.track-page-topbar-logo-text {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: var(--text);
-}
-
-.track-page-body {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 48px 24px 64px;
-}
-
-.track-page-heading {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.track-page-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 99px;
-  padding: 5px 14px;
-  font-size: 0.8rem;
-  font-weight: 600;
   color: var(--primary);
-  margin-bottom: 14px;
 }
 
-.track-page-eyebrow-dot {
-  width: 6px;
-  height: 6px;
-  background-color: #4caf50;
-  border-radius: 50%;
+/* ===============================
+   Responsive
+================================== */
+
+@media (max-width:600px){
+
+.auth-box{
+    padding:30px 24px;
 }
 
-/* ----------- NOT FOUND PAGE ----------- */
-.notfound-page {
-  min-height: 100vh;
-  background-color: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
+.auth-title{
+    font-size:1.7rem;
 }
 
-.notfound-inner {
-  text-align: center;
-  max-width: 440px;
+.auth-logo-icon{
+    width:54px;
+    height:54px;
+    font-size:24px;
 }
 
-.notfound-code {
-  font-size: 7rem;
-  font-weight: 800;
-  color: var(--primary);
-  opacity: 0.18;
-  line-height: 1;
-  user-select: none;
-}
-
-.notfound-emoji {
-  font-size: 3.5rem;
-  margin-top: -24px;
-  margin-bottom: 16px;
-}
-
-.notfound-title {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.notfound-desc {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  max-width: 340px;
-  margin: 0 auto 28px;
-}
-
-.notfound-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* ----------- CREATE ORDER PAGE ----------- */
-.create-order-layout {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 24px;
-  align-items: start;
-}
-
-.create-order-form-card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  box-shadow: var(--shadow-sm);
-}
-
-.create-order-section-title {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-}
-
-.garment-row {
-  display: grid;
-  grid-template-columns: 1fr 80px 100px 36px;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.garment-row-remove {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-muted);
-  padding: 6px;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-}
-
-.garment-row-remove:hover {
-  color: #c62828;
-  background-color: #fdecea;
-}
-
-.add-garment-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--primary);
-  background: none;
-  border: 1.5px dashed var(--primary);
-  border-radius: var(--radius-md);
-  padding: 8px 16px;
-  cursor: pointer;
-  width: 100%;
-  justify-content: center;
-  margin-top: 4px;
-}
-
-.add-garment-btn:hover {
-  background-color: #f5eef6;
-}
-
-/* Order summary sidebar */
-.order-summary-card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 22px;
-  position: sticky;
-  top: 80px;
-  box-shadow: var(--shadow-sm);
-}
-
-.order-summary-card h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-
-.order-summary-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.88rem;
-  padding: 7px 0;
-  color: var(--text-muted);
-}
-
-.order-summary-row.total {
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--text);
-  border-top: 1px solid var(--border);
-  margin-top: 8px;
-  padding-top: 14px;
-}
-
-/* ----------- ORDER DETAIL PAGE ----------- */
-.order-detail-layout {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 24px;
-  align-items: start;
-}
-
-.order-detail-card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 20px;
-}
-
-.order-detail-card h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-}
-
-.order-info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.order-info-item-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-
-.order-info-item-value {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.garment-detail-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.88rem;
-}
-
-.garment-detail-row:last-child {
-  border-bottom: none;
-}
-
-.status-update-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: 1.5px solid var(--border);
-  background: none;
-  color: var(--text-muted);
-}
-
-.status-update-btn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background-color: #f5eef6;
-}
-
-.status-update-btn.active-status {
-  background-color: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
-}
-
-/* Responsive auth, track, order pages */
-@media (max-width: 640px) {
-  .auth-box {
-    padding: 28px 20px;
-  }
-
-  .create-order-layout,
-  .order-detail-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .order-summary-card {
-    position: static;
-  }
-
-  .garment-row {
-    grid-template-columns: 1fr 64px;
-    gap: 8px;
-  }
-
-  .garment-row-price {
-    display: none;
-  }
 }
